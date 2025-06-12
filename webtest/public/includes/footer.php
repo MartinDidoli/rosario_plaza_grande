@@ -16,9 +16,15 @@
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link p-0 text-body-secondary">Promociones</a>
                     </li>
-                    <li class="nav-item mb-2">
-                        <a href="login.php" class="nav-link p-0 text-body-secondary">Ingresar</a>
-                    </li>
+                    <?php
+                    if(!isset($_SESSION["usuarioMailSesion"])){
+                        ?>
+                        <li class="nav-item mb-2">
+                            <a href="login.php" class="nav-link p-0 text-body-secondary">Ingresar</a>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="col-6">

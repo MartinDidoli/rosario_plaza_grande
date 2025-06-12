@@ -19,9 +19,11 @@ if (mysqli_num_rows($resultado) > 0){
         header("Location: /webtest/public/inicio.php?login=exitoso");
     } elseif ($claveIngresa!=$usuario["claveUsuario"]){
         echo "Contraseña mal ingresada";
+        header("Location: /webtest/public/login.php?login=malaClave");
     }
 } else {
     echo "El usuario no existe";
+    header("Location: /webtest/public/login.php?login=noexisteusuario");
 }
 
 ?>

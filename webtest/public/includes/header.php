@@ -29,22 +29,113 @@
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Usuarios
+                                <?php
+                                if(!isset($_SESSION["usuarioMailSesion"])){
+                                    echo "Usuarios";
+                                } elseif ($_SESSION["usuarioTipoSesion"]=="administrador") {
+                                    echo "Menú Administrador";
+                                } elseif ($_SESSION["usuarioTipoSesion"]=="dueno"){
+                                    echo "Menú Dueños";
+                                } else {
+                                    echo "Menú Clientes";
+                                }
+                                ?>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="login.php">Iniciar sesión</a></li>
-                                <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
+                                <?php
+                                if(!isset($_SESSION["usuarioMailSesion"])){
+                                    ?>
+                                    <li><a class="dropdown-item" href="login.php">Iniciar sesión</a></li>
+                                    <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
+                                    <?php
+                                } elseif ($_SESSION["usuarioTipoSesion"]=="administrador") {
+                                    ?>
+                                    <li><a class="dropdown-item" href="reportesadmin.php">Reportes</a></li>
+                                    <li><a class="dropdown-item" href="localesadmin.php">Locales</a></li>
+                                    <li><a class="dropdown-item" href="novedadesadmin.php">Novedades</a></li>
+                                    <li><a class="dropdown-item" href="duenosadmin.php">Dueños</a></li>
+                                    <li><a class="dropdown-item" href="descuentosadmin.php">Descuentos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                                    <?php
+                                } elseif ($_SESSION["usuarioTipoSesion"]=="dueno") {
+                                    ?>
+                                    <li><a class="dropdown-item" href="reportesdueno.php">Reportes</a></li>
+                                    <li><a class="dropdown-item" href="descuentosdueno.php">Descuentos</a></li>
+                                    <li><a class="dropdown-item" href="solicitudesdueno.php">Solicitudes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li><a class="dropdown-item" href="novedades.php">📢Novedades</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                                    <?php
+                                }
+                                ?>
                             </ul>
                         </li>
                     </ul>
-                    <div class="d-none d-lg-flex align-items-center">
-                        <a href="login.php" class="btn btn-outline-primary me-2">
-                            Iniciar sesión
-                        </a>
-                        <a href="registro.php" class="btn btn-primary">
-                            Registrarme
-                        </a>
-                    </div>
+                    <?php
+                    if(!isset($_SESSION["usuarioMailSesion"])){
+                        ?>
+                        <div class="d-none d-lg-flex align-items-center">
+                            <a href="login.php" class="btn btn-outline-primary me-2">
+                                Iniciar sesión
+                            </a>
+                            <a href="registro.php" class="btn btn-primary">
+                                Registrarme
+                            </a>
+                        </div>
+                        <?php
+                    } elseif ($_SESSION["usuarioTipoSesion"]=="administrador"){
+                        ?>
+                        <div class="btn-group d-none d-lg-flex align-items-center">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menú Administrador
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="reportesadmin.php">Reportes</a></li>
+                                <li><a class="dropdown-item" href="localesadmin.php">Locales</a></li>
+                                <li><a class="dropdown-item" href="novedadesadmin.php">Novedades</a></li>
+                                <li><a class="dropdown-item" href="duenosadmin.php">Dueños</a></li>
+                                <li><a class="dropdown-item" href="descuentosadmin.php">Descuentos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                            </ul>
+                        </div>
+                        <?php
+                    } elseif ($_SESSION["usuarioTipoSesion"]=="dueno"){
+                        ?>
+                        <div class="btn-group d-none d-lg-flex align-items-center">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menú Dueños
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="reportesdueno.php">Reportes</a></li>
+                                <li><a class="dropdown-item" href="descuentosdueno.php">Descuentos</a></li>
+                                <li><a class="dropdown-item" href="solicitudesdueno.php">Solicitudes</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                            </ul>
+                        </div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="btn-group d-none d-lg-flex align-items-center">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menú Clientes
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="novedades.php">📢Novedades</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
+                            </ul>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

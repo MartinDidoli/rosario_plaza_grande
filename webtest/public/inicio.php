@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css\style.css">
 </head>
 <?php
+session_start();
 if(isset($_GET["login"])){
     switch ($_GET["login"]){
         case "afuera":
             include ("includes/loginafuera.html");
             break;
         case "exitoso":
-            session_start();
             include ("includes/loginexitoso.php");
             break;
     }        
@@ -31,7 +31,13 @@ if(isset($_GET["login"])){
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <?php
+                if(!isset($_SESSION["usuarioMailSesion"])){
+                    ?>
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <?php
+                }
+                ?>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active c-item" data-bs-interval="10000">
@@ -42,14 +48,20 @@ if(isset($_GET["login"])){
                         <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Conocé todo sobre nosotros</button>
                     </div>
                 </div>
-                <div class="carousel-item c-item" data-bs-interval="2000">
-                    <img src="assets\shopping2.jpg" class="d-block w-100 c-img" alt="Mujer realizando compras">
-                    <div class="carousel-caption top-0 mt-4">
-                        <p class="mt-5 fs-3 text-shadow-custom">Reservá los cupones de descuentos para tus compras</p>
-                        <h2 class="display-1 fw-bolder text-shadow-custom">¡Registrate!</h2>
-                        <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</button>
+                <?php
+                if(!isset($_SESSION["usuarioMailSesion"])){
+                    ?>
+                    <div class="carousel-item c-item" data-bs-interval="2000">
+                        <img src="assets\shopping2.jpg" class="d-block w-100 c-img" alt="Mujer realizando compras">
+                        <div class="carousel-caption top-0 mt-4">
+                            <p class="mt-5 fs-3 text-shadow-custom">Reservá los cupones de descuentos para tus compras</p>
+                            <h2 class="display-1 fw-bolder text-shadow-custom">¡Registrate!</h2>
+                            <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</button>
+                        </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
                 <div class="carousel-item c-item">
                     <img src="assets\shopping3.jpg" class="d-block w-100 c-img" alt="Interior de un shopping">
                     <div class="carousel-caption top-0 mt-4">
