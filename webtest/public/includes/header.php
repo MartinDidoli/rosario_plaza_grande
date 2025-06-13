@@ -15,7 +15,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 mx-auto">
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="inicio.php">🏠Home</a>
+                            <a class="nav-link active" aria-current="page" href="/webtest/public/inicio.php">🏠Home</a>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link " href="#">👥Contacto</a>
@@ -45,8 +45,8 @@
                                 <?php
                                 if(!isset($_SESSION["usuarioMailSesion"])){
                                     ?>
-                                    <li><a class="dropdown-item" href="login.php">Iniciar sesión</a></li>
-                                    <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/public/login.php">Iniciar sesión</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/public/registro.php">Registrarme</a></li>
                                     <?php
                                 } elseif ($_SESSION["usuarioTipoSesion"]=="administrador") {
                                     ?>
@@ -81,10 +81,10 @@
                     if(!isset($_SESSION["usuarioMailSesion"])){
                         ?>
                         <div class="d-none d-lg-flex align-items-center">
-                            <a href="login.php" class="btn btn-outline-primary me-2">
+                            <a href="/webtest/public/login.php" class="btn btn-outline-primary me-2">
                                 Iniciar sesión
                             </a>
-                            <a href="registro.php" class="btn btn-primary">
+                            <a href="/webtest/public/registro.php" class="btn btn-primary">
                                 Registrarme
                             </a>
                         </div>

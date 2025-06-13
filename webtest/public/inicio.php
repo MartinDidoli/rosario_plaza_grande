@@ -56,7 +56,7 @@ if(isset($_GET["login"])){
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-shadow-custom">Reservá los cupones de descuentos para tus compras</p>
                             <h2 class="display-1 fw-bolder text-shadow-custom">¡Registrate!</h2>
-                            <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</button>
+                            <a href="/webtest/public/registro.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</a>
                         </div>
                     </div>
                     <?php
