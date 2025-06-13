@@ -50,25 +50,25 @@
                                     <?php
                                 } elseif ($_SESSION["usuarioTipoSesion"]=="administrador") {
                                     ?>
-                                    <li><a class="dropdown-item" href="reportesadmin.php">Reportes</a></li>
-                                    <li><a class="dropdown-item" href="localesadmin.php">Locales</a></li>
-                                    <li><a class="dropdown-item" href="novedadesadmin.php">Novedades</a></li>
-                                    <li><a class="dropdown-item" href="duenosadmin.php">Dueños</a></li>
-                                    <li><a class="dropdown-item" href="descuentosadmin.php">Descuentos</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/reportesadmin.php">Reportes</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/localesadmin.php">Locales</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/novedadesadmin.php">Novedades</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/duenosadmin.php">Dueños</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/descuentosadmin.php">Descuentos</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                                     <?php
                                 } elseif ($_SESSION["usuarioTipoSesion"]=="dueno") {
                                     ?>
-                                    <li><a class="dropdown-item" href="reportesdueno.php">Reportes</a></li>
-                                    <li><a class="dropdown-item" href="descuentosdueno.php">Descuentos</a></li>
-                                    <li><a class="dropdown-item" href="solicitudesdueno.php">Solicitudes</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/reportesdueno.php">Reportes</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/descuentosdueno.php">Descuentos</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/solicitudesdueno.php">Solicitudes</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a class="dropdown-item" href="novedades.php">📢Novedades</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/novedades.php">📢Novedades</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                                     <?php
@@ -92,15 +92,15 @@
                     } elseif ($_SESSION["usuarioTipoSesion"]=="administrador"){
                         ?>
                         <div class="btn-group d-none d-lg-flex align-items-center">
-                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menú Administrador
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="reportesadmin.php">Reportes</a></li>
-                                <li><a class="dropdown-item" href="localesadmin.php">Locales</a></li>
-                                <li><a class="dropdown-item" href="novedadesadmin.php">Novedades</a></li>
-                                <li><a class="dropdown-item" href="duenosadmin.php">Dueños</a></li>
-                                <li><a class="dropdown-item" href="descuentosadmin.php">Descuentos</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/reportesadmin.php">Reportes</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/localesadmin.php">Locales</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/novedadesadmin.php">Novedades</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/duenosadmin.php">Dueños</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/descuentosadmin.php">Descuentos</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                             </ul>
@@ -109,13 +109,13 @@
                     } elseif ($_SESSION["usuarioTipoSesion"]=="dueno"){
                         ?>
                         <div class="btn-group d-none d-lg-flex align-items-center">
-                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menú Dueños
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="reportesdueno.php">Reportes</a></li>
-                                <li><a class="dropdown-item" href="descuentosdueno.php">Descuentos</a></li>
-                                <li><a class="dropdown-item" href="solicitudesdueno.php">Solicitudes</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/reportesdueno.php">Reportes</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/descuentosdueno.php">Descuentos</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/solicitudesdueno.php">Solicitudes</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                             </ul>
@@ -124,11 +124,11 @@
                     } else {
                         ?>
                         <div class="btn-group d-none d-lg-flex align-items-center">
-                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menú Clientes
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="novedades.php">📢Novedades</a></li>
+                                <li><a class="dropdown-item" href="/webtest/src/novedades.php">📢Novedades</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
                             </ul>

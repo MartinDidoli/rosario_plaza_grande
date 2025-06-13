@@ -62,7 +62,7 @@
                     </form>
                 </div>
                 <div class="col-12 col-md-6 d-flex flex-column">
-                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="/procesar-registro-dueno" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="/webtest/src/registrarDueno.php" method="POST">
                         <h3 class="h4 mb-3 fw-normal text-center">
                             Registrar como Dueño de Local
                         </h3>
