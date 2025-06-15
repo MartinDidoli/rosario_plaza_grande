@@ -79,18 +79,18 @@ if(isset($_GET["borrar"])){
                                     <?php
                                     if($fila["codUsuario"]>0){
                                         $duenoABuscar = $fila["codUsuario"];
-                                        $buscarDueno = "SELECT * FROM usuarios WHERE codUsuario = '$duenoABuscar'";
+                                        $buscarDueno = "SELECT * FROM usuarios WHERE codUsuario = '$duenoABuscar' AND duenoAprobado = 'si'";
                                         $encontreDueno = mysqli_query($link,$buscarDueno);
                                         $duenoMuestro = mysqli_fetch_assoc($encontreDueno);
                                         if ($duenoMuestro == null){
-                                            echo "<strong>Falta crear</strong>";
+                                            echo "<strong>Falta crear/aprobar</strong>";
                                         } else {
                                             echo $duenoMuestro["nombreUsuario"];
                                         }
+                                        mysqli_free_result($encontreDueno);
                                     } else {
-                                        echo "Sin asignar";
+                                        echo "<strong>Sin asignar</strong>";
                                     }
-                                    mysqli_free_result($encontreDueno);
                                     ?>
                                 </td>
                                 <td><a href="/webtest/src/modificarLocal.php?codigo=<?php echo ($fila["codLocal"]).'&nombre='.($fila["nombreLocal"]).'&ubicacion='.($fila["ubicacionLocal"]).'&rubro='.($fila["rubroLocal"]).'&dueno='.($fila["codUsuario"]) ?>" style="text-decoration:none">✏️</a></td>

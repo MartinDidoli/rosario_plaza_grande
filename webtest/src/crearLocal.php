@@ -41,7 +41,7 @@
                             </label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nuevoLocalDueno" name="nuevoLocalDueno" placeholder="Ubicación" required>
+                            <input type="text" class="form-control" id="nuevoLocalDueno" name="nuevoLocalDueno" placeholder="Dueño">
                             <label for="nuevoLocalDueno">
                                 ID del Dueño
                             </label>

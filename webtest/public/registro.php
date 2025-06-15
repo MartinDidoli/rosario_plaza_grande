@@ -15,6 +15,9 @@
             case "exitoso":
                 include ("includes/registroexitoso.html");
                 break;
+            case "exitosodueno":
+                include ("includes/registroexitosodueno.html");
+                break;
             case "clavemal":
                 include ("includes/registroclavemal.html");
                 break;
