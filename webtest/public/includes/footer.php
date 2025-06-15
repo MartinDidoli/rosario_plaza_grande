@@ -5,13 +5,13 @@
                 <h5>Secciones</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
-                        <a href="/webtest/public/inicio.php" class="nav-link p-0 text-body-secondary">Inicio</a>
+                        <a href="/webtest/public/index.php" class="nav-link p-0 text-body-secondary">Inicio</a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link p-0 text-body-secondary">Contacto</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a>
+                        <a href="/webtest/public/nosotros.php" class="nav-link p-0 text-body-secondary">Nosotros</a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link p-0 text-body-secondary">Promociones</a>

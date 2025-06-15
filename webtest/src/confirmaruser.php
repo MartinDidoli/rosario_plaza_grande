@@ -16,7 +16,7 @@ if (mysqli_num_rows($resultado) > 0){
         if (isset($usuario["categoriaCliente"])){
             $_SESSION["usuarioCategoriaSesion"]=$usuario["categoriaCliente"];
         }
-        header("Location: /webtest/public/inicio.php?login=exitoso");
+        header("Location: /webtest/public/index.php?login=exitoso");
     } elseif ($claveIngresa!=$usuario["claveUsuario"]){
         echo "Contraseña mal ingresada";
         header("Location: /webtest/public/login.php?login=malaClave");
