@@ -19,6 +19,9 @@ if(isset($_GET["login"])){
             session_start();
             include ("includes/noexisteusuario.html");
             break;
+        case "noAprobado":
+            include ("includes/noAprobado.html");
+            break;
     }
 }
 ?>

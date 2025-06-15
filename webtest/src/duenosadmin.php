@@ -74,7 +74,7 @@ $totalDuenos = mysqli_num_rows($losDuenos);
                                     ?>
                                 </td>
                                 <td><?php echo ($fila["duenoAprobado"])?></td>
-                                <td><a href="/webtest/src/aprobardueno.php?codigo=<?php echo ($fila["codUsuario"])?>" style="text-decoration:none">✅</a></td>
+                                <td><a href="/webtest/src/aprobardueno.php?aprobar=<?php echo ($fila["codUsuario"])?>" style="text-decoration:none">✅</a></td>
                                 <td><a href="/webtest/src/rechazardueno.php?borrar=<?php echo ($fila["codUsuario"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
