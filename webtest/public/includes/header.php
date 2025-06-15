@@ -18,7 +18,7 @@
                             <a class="nav-link active" aria-current="page" href="/webtest/public/index.php">🏠Home</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link " href="#">👥Contacto</a>
+                            <a class="nav-link " href="/webtest/public/contacto.php">👥Contacto</a>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link" href="/webtest/public/nosotros.php">😎Nosotros</a>

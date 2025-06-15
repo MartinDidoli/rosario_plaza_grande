@@ -8,7 +8,7 @@
                         <a href="/webtest/public/index.php" class="nav-link p-0 text-body-secondary">Inicio</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Contacto</a>
+                        <a href="/webtest/public/contacto.php" class="nav-link p-0 text-body-secondary">Contacto</a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/webtest/public/nosotros.php" class="nav-link p-0 text-body-secondary">Nosotros</a>
@@ -31,13 +31,13 @@
                 <h5>Contacto</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">341-2345678</a>
+                        <p class="nav-link p-0 text-body-secondary">341-2345678</p>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Av. Pellegrini 2193</a>
+                        <p class="nav-link p-0 text-body-secondary">Av. Pellegrini 2193</p>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">rosario@plazagrande.com</a>
+                        <p class="nav-link p-0 text-body-secondary">rosario@plazagrande.com</p>
                     </li>
                 </ul>
             </div>
