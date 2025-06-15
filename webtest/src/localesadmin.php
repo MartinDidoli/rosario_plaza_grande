@@ -36,7 +36,13 @@ if(isset($_GET["comofue"])){
         case "modificoexitoso":
             include("../public/includes/modificoexitoso.html");
             break;
+        case "eliminaLocalExitoso":
+            include("../public/includes/eliminaLocalExitoso.html");
+            break;
     }
+}
+if(isset($_GET["borrar"])){
+    include("../public/includes/seguroborrar.php");
 }
 
 ?>
@@ -88,7 +94,7 @@ if(isset($_GET["comofue"])){
                                     ?>
                                 </td>
                                 <td><a href="/webtest/src/modificarLocal.php?codigo=<?php echo ($fila["codLocal"]).'&nombre='.($fila["nombreLocal"]).'&ubicacion='.($fila["ubicacionLocal"]).'&rubro='.($fila["rubroLocal"]).'&dueno='.($fila["codUsuario"]) ?>" style="text-decoration:none">✏️</a></td>
-                                <td><a href="/webtest/src/borrarLocal.php?codigo=<?php echo ($fila["codLocal"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/webtest/src/localesadmin.php?borrar=<?php echo ($fila["codLocal"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                         }
