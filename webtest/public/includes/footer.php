@@ -14,7 +14,7 @@
                         <a href="/webtest/public/nosotros.php" class="nav-link p-0 text-body-secondary">Nosotros</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Promociones</a>
+                        <a href="/webtest/public/promociones.php" class="nav-link p-0 text-body-secondary">Promociones</a>
                     </li>
                     <?php
                     if(!isset($_SESSION["usuarioMailSesion"])){

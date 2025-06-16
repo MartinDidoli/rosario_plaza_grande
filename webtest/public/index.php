@@ -67,7 +67,7 @@ if(isset($_GET["login"])){
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">Conocé todas las promociones</p>
                         <h2 class="display-1 fw-bolder text-shadow-custom">Todos tus descuentos acá</h2>
-                        <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Descuentos</button>
+                        <a href="/webtest/public/promociones.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Descuentos</a>
                     </div>
                 </div>
             </div>

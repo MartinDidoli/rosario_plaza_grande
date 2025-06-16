@@ -24,7 +24,7 @@
                             <a class="nav-link" href="/webtest/public/nosotros.php">😎Nosotros</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#'">🏷️Promociones</a>
+                            <a class="nav-link" href="/webtest/public/promociones.php">🏷️Promociones</a>
                         </li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
