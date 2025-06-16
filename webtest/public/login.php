@@ -25,6 +25,9 @@ if(isset($_GET["login"])){
         case "revisarMail":
             include ("includes/revisarMail.html");
             break;
+        case "modificoexitoso":
+            include ("includes/claveexito.html");
+            break;
     }
 }
 ?>
