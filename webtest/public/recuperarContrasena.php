@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Recuperar contraseña</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="css\style.css">
@@ -22,9 +22,6 @@ if(isset($_GET["login"])){
         case "noAprobado":
             include ("includes/noAprobado.html");
             break;
-        case "revisarMail":
-            include ("includes/revisarMail.html");
-            break;
     }
 }
 ?>
@@ -36,9 +33,9 @@ if(isset($_GET["login"])){
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <form class="p-4 border rounded shadow-sm bg-white" action="/webtest/src/confirmaruser.php" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white" action="/webtest/src/mailRecuperacion.php" method="POST">
                         <h1 class="h3 mb-3 fw-normal">
-                            Iniciar sesión
+                            Recuperar contraseña
                         </h1>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="usuarioMailIngresa" name="usuarioMailIngresa" placeholder="nombre@ejemplo.com" required>
@@ -46,23 +43,12 @@ if(isset($_GET["login"])){
                                 Correo electrónico 
                             </label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="usuarioClaveIngresa" name="usuarioClaveIngresa" placeholder="Password" required>
-                            <label for="usuarioClaveIngresa">
-                                Contraseña
-                            </label>
-                        </div>
                         <button class="btn btn-primary w-100 py-2" type="submit">
-                            Ingresar
+                            Recuperar
                         </button>
-                        <div class="text-center mt-3">
-                            <a href="/webtest/public/recuperarContrasena.php" class="btn btn-link text-decoration-none">
-                                ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
                         <div class="text-center mt-2">
-                            <a href="registro.php" class="btn btn-secondary w-100 py-2">
-                                Registrarme
+                            <a href="/webtest/public/login.php" class="btn btn-secondary w-100 py-2">
+                                Volver
                             </a>
                         </div>
                     </form>

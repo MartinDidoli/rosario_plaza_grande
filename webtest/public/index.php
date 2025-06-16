@@ -45,7 +45,7 @@ if(isset($_GET["login"])){
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">¡Bienvenidos a nuestro nuevo sitio web!</p>
                         <h1 class="display-1 fw-bolder text-shadow-custom">Rosario Plaza Grande</h1>
-                        <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Conocé todo sobre nosotros</button>
+                        <a href="/webtest/public/nosotros.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Conocé todo sobre nosotros</a>
                     </div>
                 </div>
                 <?php
