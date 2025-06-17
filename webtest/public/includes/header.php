@@ -61,7 +61,7 @@
                                 } elseif ($_SESSION["usuarioTipoSesion"]=="dueno") {
                                     ?>
                                     <li><a class="dropdown-item" href="/webtest/src/reportesdueno.php">Reportes</a></li>
-                                    <li><a class="dropdown-item" href="/webtest/src/descuentosdueno.php">Descuentos</a></li>
+                                    <li><a class="dropdown-item" href="/webtest/src/promocionesdueno.php">Descuentos</a></li>
                                     <li><a class="dropdown-item" href="/webtest/src/solicitudesdueno.php">Solicitudes</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="/webtest/src/cerrarsesion.php">Cerrar sesión</a></li>
