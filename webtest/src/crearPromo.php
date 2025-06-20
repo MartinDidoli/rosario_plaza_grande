@@ -50,31 +50,31 @@
                                 Días de la semana que aplica:
                             </label>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="0" id="lunes">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="0" id="lunes">
                                 <label class="form-check-label" for="lunes">Lunes</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="1" id="martes">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="1" id="martes">
                                 <label class="form-check-label" for="martes">Martes</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="2" id="miercoles">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="2" id="miercoles">
                                 <label class="form-check-label" for="miercoles">Miércoles</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="3" id="jueves">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="3" id="jueves">
                                 <label class="form-check-label" for="jueves">Jueves</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="4" id="viernes">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="4" id="viernes">
                                 <label class="form-check-label" for="viernes">Viernes</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="5" id="sabado">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="5" id="sabado">
                                 <label class="form-check-label" for="sabado">Sábado</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diasApl" value="6" id="domingo">
+                                <input class="form-check-input" type="checkbox" name="diasApl[]" value="6" id="domingo">
                                 <label class="form-check-label" for="domingo">Domingo</label>
                             </div>
                         </div>

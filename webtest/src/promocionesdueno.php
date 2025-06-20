@@ -33,7 +33,7 @@ $totalPromos = mysqli_num_rows($lasPromos);
 if(isset($_GET["comofue"])){
     switch ($_GET["comofue"]){
         case "exitoso":
-            include("../public/includes/localexitoso.html");
+            include("../public/includes/promocreaexitoso.html");
             break;
         case "eliminaLocalExitoso":
             include("../public/includes/eliminaLocalExitoso.html");
@@ -70,7 +70,7 @@ if(isset($_GET["borrar"])){
                         <?php
                         $diasSemana = ["lun","mar","mie","jue","vie","sab","dom"];
                         while($fila=mysqli_fetch_array($lasPromos)){
-                            $diasExtraidos=explode(",",$fila["diasAplica"]);
+                            $diasExtraidos=explode(",",$fila["diasSemana"]);
                             $diasArray = [];
                             foreach($diasExtraidos as $i => $aplica){
                                 if ($aplica == "1"){
@@ -84,7 +84,7 @@ if(isset($_GET["borrar"])){
                                 <td><?php echo ($fila["categoriaCliente"])?></td>
                                 <td><?php echo ($fila["fechaDesdePromo"])?></td>
                                 <td><?php echo ($fila["fechaHastaPromo"])?></td>
-                                <td><?php echo ($diasMostrar) ?></td>
+                                <td><?php echo ($diasMuestro) ?></td>
                                 <td><?php echo ($fila["textoPromo"])?></td>
                                 <td><?php echo ($fila["estadoPromo"])?></td>
                                 <td><a href="/webtest/src/promocionesdueno.php?borrar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">❌</a></td>
