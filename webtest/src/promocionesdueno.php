@@ -35,13 +35,13 @@ if(isset($_GET["comofue"])){
         case "exitoso":
             include("../public/includes/promocreaexitoso.html");
             break;
-        case "eliminaLocalExitoso":
-            include("../public/includes/eliminaLocalExitoso.html");
+        case "eliminaPromoExitoso":
+            include("../public/includes/eliminaPromoExitoso.html");
             break;
     }
 }
 if(isset($_GET["borrar"])){
-    include("../public/includes/seguroborrar.php");
+    include("../public/includes/seguroborrarpromo.php");
 }
 
 ?>
