@@ -27,15 +27,31 @@ function buscarLocal($codigoLocal){
     return(mysqli_fetch_assoc(mysqli_query($link,$buscoNombre))["nombreLocal"]);
 }
 
+if(isset($_SESSION["usuarioCodSesion"])){
+    $codUserNow = $_SESSION["usuarioCodSesion"];
+}
+
 if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSesion"]=="inicial"){
-    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial'";
-    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial'". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()";
+    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarCuantosTengo="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='aceptada'";
+    $cuantosTengo= mysqli_num_rows(mysqli_query($link,$buscarCuantosTengo));
+    if ($cuantosTengo > 9){
+        $actMedium="UPDATE usuarios SET categoriaCliente='medium' WHERE codUsuario='$codUserNow'";
+        mysqli_query($link,$actMedium);
+    }
 } elseif (isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSesion"]=="medium") {
-    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium'";
-    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium'". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()";
+    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarCuantosTengo="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='aceptada'";
+    $cuantosTengo= mysqli_num_rows(mysqli_query($link,$buscarCuantosTengo));
+    if ($cuantosTengo > 19){
+        $actPremium="UPDATE usuarios SET categoriaCliente='premium' WHERE codUsuario='$codUserNow'";
+        mysqli_query($link,$actMedium);
+    }
 } else {
-    $buscarPromos1 = "SELECT * FROM promociones WHERE estadoPromo='aprobada'";
-    $buscarPromos2 = "SELECT * FROM promociones WHERE estadoPromo='aprobada'". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()";
+    $buscarPromos2 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
 }
 
 $lasPromos = mysqli_query($link,$buscarPromos1);
@@ -46,16 +62,19 @@ $totalPromos = mysqli_num_rows($lasPromos);
 
 if(isset($_GET["comofue"])){
     switch ($_GET["comofue"]){
-        case "aprobado":
-            include("../public/includes/promoAprobada.html");
+        case "aceptada":
+            include("../public/includes/promoAceptada.html");
             break;
-        case "rechazado":
+        case "rechazada":
             include("../public/includes/promoRechazada.html");
             break;
+        case "enviada":
+            include("../public/includes/promoEnviada.html");
+            break;
+        case "pedida":
+            include("../public/includes/promoPedida.html");
+            break;
     }
-}
-if(isset($_GET["borrar"])){
-    include("../public/includes/seguroborrarpromo.php");
 }
 
 ?>
@@ -116,9 +135,28 @@ if(isset($_GET["borrar"])){
                                 <td><?php echo ($diasMuestro) ?></td>
                                 <td><?php echo ($fila["textoPromo"])?></td>
                                 <?php
-                                if(isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente"){
+                                $estaPromo = $fila["codPromo"];
+                                $estaAceptada="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='aceptada' AND codPromo='$estaPromo'";
+                                $confirmoAceptacion=mysqli_num_rows(mysqli_query($link,$estaAceptada));
+                                $estaEnviada="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='enviada' AND codPromo='$estaPromo'";
+                                $confirmoEnvio=mysqli_num_rows(mysqli_query($link,$estaEnviada));
+                                $estaRechazada="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='rechazada' AND codPromo='$estaPromo'";
+                                $confirmoRechazo=mysqli_num_rows(mysqli_query($link,$estaRechazada));
+                                if(isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoRechazo>0) {
+                                        ?>
+                                        <td><a href="/webtest/public/promociones.php?comofue=rechazada" style="text-decoration:none">❌</a></td>
+                                        <?php
+                                    } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoAceptacion>0){
+                                        ?>
+                                        <td><a href="/webtest/public/promociones.php?comofue=aceptada" style="text-decoration:none">✅</a></td>
+                                        <?php
+                                    } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoEnvio>0) {
+                                        ?>
+                                        <td><a href="/webtest/public/promociones.php?comofue=enviada" style="text-decoration:none">🕚</a></td>
+                                        <?php
+                                    } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente"){
                                     ?>
-                                    <td><a href="/webtest/src/promoNoAdmin.php?negar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">🙏</a></td>
+                                    <td><a href="/webtest/src/promopedir.php?pido=<?php echo ($fila["codPromo"]) ?>&cliente=<?php echo $codUserNow ?>" style="text-decoration:none">🙏</a></td>
                                     <?php
                                 }
                                 ?>
@@ -140,7 +178,7 @@ if(isset($_GET["borrar"])){
                                 if($pagina == $i){
                                     echo '<li class="page-item"><a class="page-link">'. $i .'</a></li>';
                                 } else {
-                                    echo '<li class="page-item"><a class="page-link" href="promocionesdueno.php?pagina='. $i .'">'. $i .'</a></li>';
+                                    echo '<li class="page-item"><a class="page-link" href="promociones.php?pagina='. $i .'">'. $i .'</a></li>';
                                 }
                             }
                         }

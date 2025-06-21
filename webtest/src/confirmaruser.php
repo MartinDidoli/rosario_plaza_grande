@@ -13,6 +13,7 @@ if (mysqli_num_rows($resultado) > 0){
         session_start();
         $_SESSION["usuarioMailSesion"] = $mailIngresa;
         $_SESSION["usuarioTipoSesion"] = $usuario["tipoUsuario"];
+        $_SESSION["usuarioCodSesion"] = $usuario["codUsuario"];
         if (isset($usuario["categoriaCliente"])){
             $_SESSION["usuarioCategoriaSesion"]=$usuario["categoriaCliente"];
         }
