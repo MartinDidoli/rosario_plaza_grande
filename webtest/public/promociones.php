@@ -27,13 +27,20 @@ function buscarLocal($codigoLocal){
     return(mysqli_fetch_assoc(mysqli_query($link,$buscoNombre))["nombreLocal"]);
 }
 
-if(isset($_SESSION["usuarioCodSesion"])){
-    $codUserNow = $_SESSION["usuarioCodSesion"];
+if(isset($_GET["buscarPorlocal"])){
+    $guardoGET=$_GET["buscarPorlocal"];
+    $filtro=" AND codLocal='$guardoGET'";
+} else {
+    $filtro="";
 }
 
+if(isset($_SESSION["usuarioCodSesion"])){
+    $codUserNow = $_SESSION["usuarioCodSesion"];
+} else $codUserNow = 0;
+
 if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSesion"]=="inicial"){
-    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()";
-    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()". $filtro;
+    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente='inicial' AND fechaHastaPromo >= CURDATE()". $filtro . " limit " . $inicio . "," . $cant_por_pag;
     $buscarCuantosTengo="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='aceptada'";
     $cuantosTengo= mysqli_num_rows(mysqli_query($link,$buscarCuantosTengo));
     if ($cuantosTengo > 9){
@@ -41,8 +48,8 @@ if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSes
         mysqli_query($link,$actMedium);
     }
 } elseif (isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSesion"]=="medium") {
-    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()";
-    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()". $filtro;
+    $buscarPromos2="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()". $filtro . " limit " . $inicio . "," . $cant_por_pag;
     $buscarCuantosTengo="SELECT * FROM uso_promociones WHERE codCliente='$codUserNow' AND estado='aceptada'";
     $cuantosTengo= mysqli_num_rows(mysqli_query($link,$buscarCuantosTengo));
     if ($cuantosTengo > 19){
@@ -50,8 +57,8 @@ if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSes
         mysqli_query($link,$actMedium);
     }
 } else {
-    $buscarPromos1 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()";
-    $buscarPromos2 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()". " limit " . $inicio . "," . $cant_por_pag;
+    $buscarPromos1 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()". $filtro;
+    $buscarPromos2 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()". $filtro . " limit " . $inicio . "," . $cant_por_pag;
 }
 
 $lasPromos = mysqli_query($link,$buscarPromos1);
@@ -77,6 +84,7 @@ if(isset($_GET["comofue"])){
     }
 }
 
+
 ?>
 <body>
     <?php
@@ -85,6 +93,16 @@ if(isset($_GET["comofue"])){
     <main>
         <div class="container mt-5">
             <h2 class="mb-4 text-center">Descuentos</h2>
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <form action="promociones.php" method="GET" class="input-group">
+                        <label for="buscarPorlocal" class="form-label visually-hidden">Nombre de Local</label>
+                        <input type="text" class="form-control" id="buscarPorlocal" name="buscarPorlocal"
+                            placeholder="Buscar por Local" value="" required>
+                        <button type="submit" class="btn btn-primary">Buscar Local</button>
+                    </form>
+                </div>
+            </div>
             <div class="table-responsive rounded-3 shadow">
                 <table class="table table-striped table-bordered table-hover mb-0">
                     <thead class="table-dark">
