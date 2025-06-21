@@ -22,6 +22,17 @@ if (!$pagina){
     $inicio = ($pagina - 1) * $cant_por_pag;
 }
 
+if(isset($_GET["comofue"])){
+    switch ($_GET["comofue"]){
+        case "aprobada":
+            include("../public/includes/soliAprobada.html");
+            break;
+        case "rechazada":
+            include("../public/includes/soliRechazada.html");
+            break;
+        }
+    }
+
 function buscarNombre($codigoUsuario){
     include "../src/conectarDB.php";
     $buscoNombre = "SELECT nombreUsuario FROM usuarios WHERE codUsuario='$codigoUsuario'";
@@ -81,7 +92,7 @@ if(count($guardoCorresponden)>0){
                                 <td><?php echo ($fila["codPromo"])?></td>
                                 <td><?php echo buscarNombre($fila["codCliente"])?></td>
                                 <td><a href="/webtest/src/aprobarSoli.php?aprobar=<?php echo ($fila["codUso"])?>" style="text-decoration:none">✅</a></td>
-                                <td><a href="/webtest/src/rechazarSoli.php?borrar=<?php echo ($fila["codUso"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/webtest/src/rechazarSoli.php?rechazo=<?php echo ($fila["codUso"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                             }
