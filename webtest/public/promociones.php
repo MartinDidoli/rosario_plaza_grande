@@ -46,6 +46,7 @@ if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSes
     if ($cuantosTengo > 9){
         $actMedium="UPDATE usuarios SET categoriaCliente='medium' WHERE codUsuario='$codUserNow'";
         mysqli_query($link,$actMedium);
+        $_SESSION["usuarioCategoriaSesion"]="medium";
     }
 } elseif (isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSesion"]=="medium") {
     $buscarPromos1="SELECT * FROM promociones WHERE estadoPromo='aprobada' AND categoriaCliente!='premium' AND fechaHastaPromo >= CURDATE()". $filtro;
@@ -55,6 +56,7 @@ if(isset($_SESSION["usuarioCategoriaSesion"]) and $_SESSION["usuarioCategoriaSes
     if ($cuantosTengo > 19){
         $actPremium="UPDATE usuarios SET categoriaCliente='premium' WHERE codUsuario='$codUserNow'";
         mysqli_query($link,$actMedium);
+        $_SESSION["usuarioCategoriaSesion"]="premium";
     }
 } else {
     $buscarPromos1 = "SELECT * FROM promociones WHERE estadoPromo='aprobada' AND fechaHastaPromo >= CURDATE()". $filtro;

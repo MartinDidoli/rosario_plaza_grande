@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promociones (Admin)</title>
+    <title>Reportes (Admin)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="/webtest/public/css/style.css">
 </head>
 <?php
 session_start();
-include "conectarDB.php";
+include "../src/conectarDB.php";
 $cant_por_pag=5;
 $pagina=isset($_GET["pagina"]) ? $_GET["pagina"]:null;
 if (!$pagina){
@@ -21,27 +21,22 @@ if (!$pagina){
     $inicio = ($pagina - 1) * $cant_por_pag;
 }
 
-$buscarPromos = "SELECT * FROM promociones WHERE estadoPromo='pendiente'";
-$lasPromos = mysqli_query($link,$buscarPromos);
+function buscarVeces($codigoPromo){
+    include "../src/conectarDB.php";
+    $buscoPromo = "SELECT * FROM uso_promociones WHERE codPromo='$codigoPromo'";
+    return(mysqli_num_rows(mysqli_query($link,$buscoPromo)));
+}
+
+
+$localPertenece=$_SESSION["usuarioCategoriaSesion"];
+$buscarPromos1="SELECT * FROM promociones WHERE codLocal='$localPertenece'";
+$buscarPromos2="SELECT * FROM promociones WHERE codLocal='$localPertenece' limit " . $inicio . "," . $cant_por_pag;
+
+$lasPromos = mysqli_query($link,$buscarPromos1);
 $totalPromos = mysqli_num_rows($lasPromos);
 $total_paginas = ceil($totalPromos/$cant_por_pag);
-$buscarPromos = "SELECT * FROM promociones WHERE estadoPromo='pendiente'". " limit " . $inicio . "," . $cant_por_pag;
-$lasPromos = mysqli_query($link,$buscarPromos);
+$lasPromos = mysqli_query($link,$buscarPromos2);
 $totalPromos = mysqli_num_rows($lasPromos);
-
-if(isset($_GET["comofue"])){
-    switch ($_GET["comofue"]){
-        case "aprobado":
-            include("../public/includes/promoAprobada.html");
-            break;
-        case "rechazado":
-            include("../public/includes/promoRechazada.html");
-            break;
-    }
-}
-if(isset($_GET["borrar"])){
-    include("../public/includes/seguroborrarpromo.php");
-}
 
 ?>
 <body>
@@ -50,43 +45,26 @@ if(isset($_GET["borrar"])){
     ?>
     <main>
         <div class="container mt-5">
-            <h2 class="mb-4 text-center">Descuentos</h2>
+            <h2 class="mb-4 text-center">Reportes</h2>
             <div class="table-responsive rounded-3 shadow">
                 <table class="table table-striped table-bordered table-hover mb-0">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">Local</th>
-                            <th scope="col">Código</th>
+                            <th scope="col">Código cupón</th>
                             <th scope="col">Categoría</th>
-                            <th scope="col">Vence</th>
-                            <th scope="col">Días aplica</th>
                             <th scope="col">Descripción</th>
-                            <th scope="col">Aprobar</th>
-                            <th scope="col">Rechazar</th>
+                            <th scope="col">Veces solicitado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $diasSemana = ["lun","mar","mie","jue","vie","sab","dom"];
                         while($fila=mysqli_fetch_array($lasPromos)){
-                            $diasExtraidos=explode(",",$fila["diasSemana"]);
-                            $diasArray = [];
-                            foreach($diasExtraidos as $i => $aplica){
-                                if ($aplica == "1"){
-                                    $diasArray[]=$diasSemana[$i];
-                                }
-                            }
-                            $diasMuestro = implode("-",$diasArray);
                             ?>
                             <tr>
-                                <td><?php echo ($fila["codLocal"])?></td>
                                 <td><?php echo ($fila["codPromo"])?></td>
                                 <td><?php echo ($fila["categoriaCliente"])?></td>
-                                <td><?php echo ($fila["fechaHastaPromo"])?></td>
-                                <td><?php echo ($diasMuestro) ?></td>
                                 <td><?php echo ($fila["textoPromo"])?></td>
-                                <td><a href="/webtest/src/promoYesAdmin.php?aprobar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">👍</a></td>
-                                <td><a href="/webtest/src/promoNoAdmin.php?negar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">👎</a></td>
+                                <td><?php echo buscarVeces($fila["codPromo"])?></td>
                             </tr>
                             <?php
                         }
@@ -105,7 +83,7 @@ if(isset($_GET["borrar"])){
                                 if($pagina == $i){
                                     echo '<li class="page-item"><a class="page-link">'. $i .'</a></li>';
                                 } else {
-                                    echo '<li class="page-item"><a class="page-link" href="descuentosadmin.php?pagina='. $i .'">'. $i .'</a></li>';
+                                    echo '<li class="page-item"><a class="page-link" href="reportesdueno.php?pagina='. $i .'">'. $i .'</a></li>';
                                 }
                             }
                         }
