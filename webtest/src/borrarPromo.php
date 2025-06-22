@@ -10,6 +10,6 @@ if ((mysqli_query($link,$buscoUsos))!=FALSE){
 
 $eliminarPromo = "DELETE FROM promociones WHERE codPromo='$codigoElimino'";
 mysqli_query($link,$eliminarPromo);
-header("Location: /webtest/src/promocionesdueno.php?comofue=eliminaPromoExitoso");
+header("Location: /src/promocionesdueno.php?comofue=eliminaPromoExitoso");
 
 ?>

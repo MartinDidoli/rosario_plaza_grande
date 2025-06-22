@@ -4,7 +4,7 @@
             <h5 class="mb-3">¡Bienvenido!</h5>
             <p class="mb-0">Ya podés usar el sitio como <?php echo ($_SESSION["usuarioMailSesion"]);?> </p>
         </div> <div class="modal-footer flex-nowrap p-0">
-            <a href="index.php" class="btn btn-lg btn-link fs-6 text-decoration-none col-12 py-3 m-0 rounded-0 border-end">
+            <a href="/public/index.php" class="btn btn-lg btn-link fs-6 text-decoration-none col-12 py-3 m-0 rounded-0 border-end">
                 <strong>Ok</strong>
             </a>
         </div>

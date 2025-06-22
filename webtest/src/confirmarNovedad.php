@@ -8,6 +8,6 @@ $catNovedad = $_POST["categoria"];
 
 $sql = "INSERT INTO novedades(textoNovedad,fechaDesdeNovedad,fechaHastaNovedad,tipoUsuario) VALUES ('$descNovedad','$pubNovedad','$vencNovedad','$catNovedad')";
 mysqli_query($link,$sql);
-header("Location: /webtest/src/novedadesadmin.php?comofue=exitoso");
+header("Location: /src/novedadesadmin.php?comofue=exitoso");
 
 ?>

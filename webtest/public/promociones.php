@@ -7,7 +7,7 @@
     <title>Promociones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <?php
 session_start();
@@ -164,19 +164,19 @@ if(isset($_GET["comofue"])){
                                 $confirmoRechazo=mysqli_num_rows(mysqli_query($link,$estaRechazada));
                                 if(isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoRechazo>0) {
                                         ?>
-                                        <td><a href="/webtest/public/promociones.php?comofue=rechazada" style="text-decoration:none">❌</a></td>
+                                        <td><a href="/public/promociones.php?comofue=rechazada" style="text-decoration:none">❌</a></td>
                                         <?php
                                     } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoAceptacion>0){
                                         ?>
-                                        <td><a href="/webtest/public/promociones.php?comofue=aceptada" style="text-decoration:none">✅</a></td>
+                                        <td><a href="/public/promociones.php?comofue=aceptada" style="text-decoration:none">✅</a></td>
                                         <?php
                                     } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente" and $confirmoEnvio>0) {
                                         ?>
-                                        <td><a href="/webtest/public/promociones.php?comofue=enviada" style="text-decoration:none">🕚</a></td>
+                                        <td><a href="/public/promociones.php?comofue=enviada" style="text-decoration:none">🕚</a></td>
                                         <?php
                                     } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente"){
                                     ?>
-                                    <td><a href="/webtest/src/promopedir.php?pido=<?php echo ($fila["codPromo"]) ?>&cliente=<?php echo $codUserNow ?>" style="text-decoration:none">🙏</a></td>
+                                    <td><a href="../../src/promopedir.php?pido=<?php echo ($fila["codPromo"]) ?>&cliente=<?php echo $codUserNow ?>" style="text-decoration:none">🙏</a></td>
                                     <?php
                                 }
                                 ?>

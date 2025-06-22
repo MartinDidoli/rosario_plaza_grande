@@ -7,7 +7,7 @@
     <title>Registrarme</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
     <?php
     if(isset($_GET["comofue"])){
@@ -39,7 +39,7 @@
             <h2 class="text-center mb-4">Seleccioná tu tipo de registro</h2>
             <div class="row justify-content-center align-items-stretch">
                 <div class="col-12 col-md-6 mb-4 mb-md-0 d-flex flex-column">
-                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="/webtest/src/registrarCliente.php" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="../../src/registrarCliente.php" method="POST">
                         <h3 class="h4 mb-3 fw-normal text-center">
                             Registrar como cliente
                         </h3>
@@ -65,7 +65,7 @@
                     </form>
                 </div>
                 <div class="col-12 col-md-6 d-flex flex-column">
-                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="/webtest/src/registrarDueno.php" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white form-box flex-grow-1 d-flex flex-column" action="../../src/registrarDueno.php" method="POST">
                         <h3 class="h4 mb-3 fw-normal text-center">
                             Registrar como Dueño de Local
                         </h3>

@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} ^/$ [OR]
+RewriteCond %{REQUEST_URI} ^/index\.php$
+
+RewriteRule ^.*$ public/index.php [L]

@@ -7,7 +7,7 @@
     <title>Solicitudes (Dueño)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -91,8 +91,8 @@ if(count($guardoCorresponden)>0){
                             <tr>
                                 <td><?php echo ($fila["codPromo"])?></td>
                                 <td><?php echo buscarNombre($fila["codCliente"])?></td>
-                                <td><a href="/webtest/src/aprobarSoli.php?aprobar=<?php echo ($fila["codUso"])?>" style="text-decoration:none">✅</a></td>
-                                <td><a href="/webtest/src/rechazarSoli.php?rechazo=<?php echo ($fila["codUso"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/src/aprobarSoli.php?aprobar=<?php echo ($fila["codUso"])?>" style="text-decoration:none">✅</a></td>
+                                <td><a href="/src/rechazarSoli.php?rechazo=<?php echo ($fila["codUso"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                             }

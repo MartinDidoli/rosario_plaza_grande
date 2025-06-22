@@ -7,7 +7,7 @@
     <title>Crear Novedad</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <?php
@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <form class="p-4 border rounded shadow-sm bg-white" action="/webtest/src/confirmarNovedad.php" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white" action="/src/confirmarNovedad.php" method="POST">
                         <h1 class="h3 mb-3 fw-normal">
                             Creando nueva Novedad
                         </h1>
@@ -57,7 +57,7 @@
                             Crear Novedad
                         </button>
                         <div class="text-center mt-2">
-                            <a href="/webtest/src/novedadesadmin.php" class="btn btn-secondary w-100 py-2">
+                            <a href="/src/novedadesadmin.php" class="btn btn-secondary w-100 py-2">
                                 Cancelar
                             </a>
                         </div>

@@ -10,6 +10,6 @@ if ((mysqli_query($link,$buscoUsuario))!=FALSE){
 
 $modificarLocal = "DELETE FROM locales WHERE codLocal='$codigoElimino'";
 mysqli_query($link,$modificarLocal);
-header("Location: /webtest/src/localesadmin.php?comofue=eliminaLocalExitoso");
+header("Location: /src/localesadmin.php?comofue=eliminaLocalExitoso");
 
 ?>

@@ -5,22 +5,22 @@
                 <h5>Secciones</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
-                        <a href="/webtest/public/index.php" class="nav-link p-0 text-body-secondary">Inicio</a>
+                        <a href="/public/index.php" class="nav-link p-0 text-body-secondary">Inicio</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="/webtest/public/contacto.php" class="nav-link p-0 text-body-secondary">Contacto</a>
+                        <a href="/public/contacto.php" class="nav-link p-0 text-body-secondary">Contacto</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="/webtest/public/nosotros.php" class="nav-link p-0 text-body-secondary">Nosotros</a>
+                        <a href="/public/nosotros.php" class="nav-link p-0 text-body-secondary">Nosotros</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="/webtest/public/promociones.php" class="nav-link p-0 text-body-secondary">Promociones</a>
+                        <a href="/public/promociones.php" class="nav-link p-0 text-body-secondary">Promociones</a>
                     </li>
                     <?php
                     if(!isset($_SESSION["usuarioMailSesion"])){
                         ?>
                         <li class="nav-item mb-2">
-                            <a href="login.php" class="nav-link p-0 text-body-secondary">Ingresar</a>
+                            <a href="/public/login.php" class="nav-link p-0 text-body-secondary">Ingresar</a>
                         </li>
                         <?php
                     }

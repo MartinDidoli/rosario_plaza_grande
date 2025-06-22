@@ -7,7 +7,7 @@
     <title>Promociones (Dueño)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -87,7 +87,7 @@ if(isset($_GET["borrar"])){
                                 <td><?php echo ($diasMuestro) ?></td>
                                 <td><?php echo ($fila["textoPromo"])?></td>
                                 <td><?php echo ($fila["estadoPromo"])?></td>
-                                <td><a href="/webtest/src/promocionesdueno.php?borrar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/src/promocionesdueno.php?borrar=<?php echo ($fila["codPromo"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                         }
@@ -114,7 +114,7 @@ if(isset($_GET["borrar"])){
                     </ul>
                 </nav>
                 <div class="create-button-wrapper">
-                    <a href="/webtest/src/crearPromo.php" class="btn btn-primary btn-lg">Crear Promo</a>
+                    <a href="/src/crearPromo.php" class="btn btn-primary btn-lg">Crear Promo</a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,6 @@ $duenoLocal = $_POST["nuevoLocalDueno"];
 
 $sql = "INSERT INTO locales(nombreLocal,ubicacionLocal,rubroLocal,codUsuario) VALUES ('$nombreLocal','$ubicacionLocal','$rubroLocal','$duenoLocal')";
 mysqli_query($link,$sql);
-header("Location: /webtest/src/localesadmin.php?comofue=exitoso");
+header("Location: /src/localesadmin.php?comofue=exitoso");
 
 ?>

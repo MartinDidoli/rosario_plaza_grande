@@ -7,7 +7,7 @@
     <title>Rosario Plaza Grande</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <?php
 session_start();
@@ -45,7 +45,7 @@ if(isset($_GET["login"])){
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">¡Bienvenidos a nuestro nuevo sitio web!</p>
                         <h1 class="display-1 fw-bolder text-shadow-custom">Rosario Plaza Grande</h1>
-                        <a href="/webtest/public/nosotros.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Conocé todo sobre nosotros</a>
+                        <a href="/public/nosotros.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Conocé todo sobre nosotros</a>
                     </div>
                 </div>
                 <?php
@@ -56,7 +56,7 @@ if(isset($_GET["login"])){
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-shadow-custom">Reservá los cupones de descuentos para tus compras</p>
                             <h2 class="display-1 fw-bolder text-shadow-custom">¡Registrate!</h2>
-                            <a href="/webtest/public/registro.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</a>
+                            <a href="/public/registro.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Registrarme</a>
                         </div>
                     </div>
                     <?php
@@ -67,7 +67,7 @@ if(isset($_GET["login"])){
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">Conocé todas las promociones</p>
                         <h2 class="display-1 fw-bolder text-shadow-custom">Todos tus descuentos acá</h2>
-                        <a href="/webtest/public/promociones.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Descuentos</a>
+                        <a href="/public/promociones.php" class="btn btn-primary px-4 py-2 fs-5 mt-5">Descuentos</a>
                     </div>
                 </div>
             </div>

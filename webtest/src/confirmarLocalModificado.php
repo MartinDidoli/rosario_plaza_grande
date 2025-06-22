@@ -8,6 +8,6 @@ $duenoModifico = $_POST["modificoDueno"];
 
 $modificarLocal = "UPDATE locales SET nombreLocal='$nombreoModifico', ubicacionLocal='$ubicacionModifico', rubroLocal='$rubroModifico', codUsuario='$duenoModifico' WHERE codLocal='$codigoModifico'";
 mysqli_query($link,$modificarLocal);
-header("Location: /webtest/src/localesadmin.php?comofue=modificoexitoso");
+header("Location: /src/localesadmin.php?comofue=modificoexitoso");
 
 ?>

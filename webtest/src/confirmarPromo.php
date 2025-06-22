@@ -21,6 +21,6 @@ $guardoDias = implode(",", $diasAp);
 
 $sql = "INSERT INTO promociones(textoPromo,fechaDesdePromo,fechaHastaPromo,categoriaCliente,diasSemana,estadoPromo,codLocal) VALUES ('$descPromo','$pubPromo','$vencPromo','$catClient','$guardoDias','pendiente','$elLocal')";
 mysqli_query($link,$sql);
-header("Location: /webtest/src/promocionesdueno.php?comofue=exitoso");
+header("Location: /src/promocionesdueno.php?comofue=exitoso");
 
 ?>

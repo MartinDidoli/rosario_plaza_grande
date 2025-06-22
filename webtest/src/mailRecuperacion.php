@@ -13,13 +13,13 @@ if (mysqli_num_rows($resultado) > 0){
     $resend = Resend::client('queti');
     $resend->emails->send([
         'from'=>'onboarding@resend.dev',
-        'to'=> 'ixanol99@gmail.com',
+        'to'=> $mailIngresa,
         'subject'=>'Recuperar contrasena',
         'html'=>'<p>Ingresá a este link para recuperar tu contraseña: <a href="www.rosarioplazagrande.free.nf/src/recuperarde.php?mail=' . $mailIngresa . '">Link</a></p>'
     ]);
-    header("Location: /webtest/public/login.php?login=revisarMail");
+    header("Location: /public/login.php?login=revisarMail");
 } else {
     echo "El usuario no existe";
-    header("Location: /webtest/public/login.php?login=noexisteusuario");
+    header("Location: /public/login.php?login=noexisteusuario");
 }
 ?>

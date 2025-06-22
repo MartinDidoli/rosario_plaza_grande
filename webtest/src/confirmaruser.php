@@ -17,16 +17,16 @@ if (mysqli_num_rows($resultado) > 0){
         if (isset($usuario["categoriaCliente"])){
             $_SESSION["usuarioCategoriaSesion"]=$usuario["categoriaCliente"];
         }
-        header("Location: /webtest/public/index.php?login=exitoso");
+        header("Location: /public/index.php?login=exitoso");
     } elseif ($claveIngresa!=$usuario["claveUsuario"]){
         echo "Contraseña mal ingresada";
-        header("Location: /webtest/public/login.php?login=malaClave");
+        header("Location: /public/login.php?login=malaClave");
     } else if ($usuario["duenoAprobado"]="no"){
-        header("Location: /webtest/public/login.php?login=noAprobado");
+        header("Location: /public/login.php?login=noAprobado");
     }
 } else {
     echo "El usuario no existe";
-    header("Location: /webtest/public/login.php?login=noexisteusuario");
+    header("Location: /public/login.php?login=noexisteusuario");
 }
 
 ?>

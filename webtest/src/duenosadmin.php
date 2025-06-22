@@ -7,7 +7,7 @@
     <title>Dueños (Admin)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -74,8 +74,8 @@ $totalDuenos = mysqli_num_rows($losDuenos);
                                     ?>
                                 </td>
                                 <td><?php echo ($fila["duenoAprobado"])?></td>
-                                <td><a href="/webtest/src/aprobardueno.php?aprobar=<?php echo ($fila["codUsuario"])?>" style="text-decoration:none">✅</a></td>
-                                <td><a href="/webtest/src/rechazardueno.php?borrar=<?php echo ($fila["codUsuario"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/src/aprobardueno.php?aprobar=<?php echo ($fila["codUsuario"])?>" style="text-decoration:none">✅</a></td>
+                                <td><a href="/src/rechazardueno.php?borrar=<?php echo ($fila["codUsuario"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                         }

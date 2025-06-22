@@ -7,7 +7,7 @@
     <title>Novedades (Admin)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -74,8 +74,8 @@ if(isset($_GET["borrar"])){
                                 <td><?php echo ($fila["fechaHastaNovedad"])?></td>
                                 <td><?php echo ($fila["tipoUsuario"])?></td>
                                 <td><?php echo ($fila["textoNovedad"])?></td>
-                                <td><a href="/webtest/src/modificarNovedad.php?codigo=<?php echo ($fila["codNovedad"]) ?>" style="text-decoration:none">✏️</a></td>
-                                <td><a href="/webtest/src/novedadesadmin.php?borrar=<?php echo ($fila["codNovedad"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/src/modificarNovedad.php?codigo=<?php echo ($fila["codNovedad"]) ?>" style="text-decoration:none">✏️</a></td>
+                                <td><a href="/src/novedadesadmin.php?borrar=<?php echo ($fila["codNovedad"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                         }
@@ -102,7 +102,7 @@ if(isset($_GET["borrar"])){
                     </ul>
                 </nav>
                 <div class="create-button-wrapper">
-                    <a href="/webtest/src/crearNovedad.php" class="btn btn-primary btn-lg">Crear Novedad</a>
+                    <a href="/src/crearNovedad.php" class="btn btn-primary btn-lg">Crear Novedad</a>
                 </div>
             </div>
         </div>

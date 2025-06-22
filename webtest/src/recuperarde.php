@@ -7,7 +7,7 @@
     <title>Iniciar sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -30,7 +30,7 @@ if($fechaVence<$ahora){
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <form class="p-4 border rounded shadow-sm bg-white" action="/webtest/src/cambioClave.php" method="POST">
+                    <form class="p-4 border rounded shadow-sm bg-white" action="/src/cambioClave.php" method="POST">
                         <h1 class="h3 mb-3 fw-normal">
                             Cambiar contraseña
                         </h1>

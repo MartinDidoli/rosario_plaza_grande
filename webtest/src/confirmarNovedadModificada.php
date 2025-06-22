@@ -6,6 +6,6 @@ $categoriaModifico = $_POST["modificoCategoria"];
 
 $modificarNovedad = "UPDATE novedades SET textoNovedad='$descModifico', tipoUsuario='$categoriaModifico' WHERE codNovedad='$codigoModifico'";
 mysqli_query($link,$modificarNovedad);
-header("Location: /webtest/src/novedadesadmin.php?comofue=modificoexitoso");
+header("Location: /src/novedadesadmin.php?comofue=modificoexitoso");
 
 ?>

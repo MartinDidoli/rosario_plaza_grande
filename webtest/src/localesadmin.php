@@ -7,7 +7,7 @@
     <title>Locales (Admin)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/webtest/public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
 session_start();
@@ -93,8 +93,8 @@ if(isset($_GET["borrar"])){
                                     }
                                     ?>
                                 </td>
-                                <td><a href="/webtest/src/modificarLocal.php?codigo=<?php echo ($fila["codLocal"]).'&nombre='.($fila["nombreLocal"]).'&ubicacion='.($fila["ubicacionLocal"]).'&rubro='.($fila["rubroLocal"]).'&dueno='.($fila["codUsuario"]) ?>" style="text-decoration:none">✏️</a></td>
-                                <td><a href="/webtest/src/localesadmin.php?borrar=<?php echo ($fila["codLocal"]) ?>" style="text-decoration:none">❌</a></td>
+                                <td><a href="/src/modificarLocal.php?codigo=<?php echo ($fila["codLocal"]).'&nombre='.($fila["nombreLocal"]).'&ubicacion='.($fila["ubicacionLocal"]).'&rubro='.($fila["rubroLocal"]).'&dueno='.($fila["codUsuario"]) ?>" style="text-decoration:none">✏️</a></td>
+                                <td><a href="/src/localesadmin.php?borrar=<?php echo ($fila["codLocal"]) ?>" style="text-decoration:none">❌</a></td>
                             </tr>
                             <?php
                         }
@@ -121,7 +121,7 @@ if(isset($_GET["borrar"])){
                     </ul>
                 </nav>
                 <div class="create-button-wrapper">
-                    <a href="/webtest/src/crearLocal.php" class="btn btn-primary btn-lg">Crear Local</a>
+                    <a href="/src/crearLocal.php" class="btn btn-primary btn-lg">Crear Local</a>
                 </div>
             </div>
         </div>
