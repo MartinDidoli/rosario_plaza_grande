@@ -90,6 +90,9 @@ $totalPromos = mysqli_num_rows($lasPromos);
                         ?>
                     </ul>
                 </nav>
+                <div class="d-flex justify-content-center mt-3">
+                    <button class="btn btn-primary" onclick="imprimirTabla()">Imprimir Tabla</button>
+                </div>
             </div>
         </div>
     </main>
@@ -99,6 +102,41 @@ $totalPromos = mysqli_num_rows($lasPromos);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script>
+        function imprimirTabla() {
+            const contenidoParaImprimir = document.querySelector('.table-responsive');
+            const tituloReportes = document.querySelector('h2.mb-4.text-center');
+
+            const ventanaImpresion = window.open('', '_blank');
+
+            ventanaImpresion.document.write('<html><head><title>Reporte de Promociones</title>');
+            ventanaImpresion.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">');
+            ventanaImpresion.document.write('<style>');
+            ventanaImpresion.document.write('body { margin: 20px; }');
+            ventanaImpresion.document.write('table { width: 100%; border-collapse: collapse; }');
+            ventanaImpresion.document.write('th, td { border: 1px solid #dee2e6; padding: 8px; text-align: left; }');
+            ventanaImpresion.document.write('thead th { background-color: #343a40; color: white; }');
+            ventanaImpresion.document.write('h2 { text-align: center; margin-bottom: 20px; }');
+            ventanaImpresion.document.write('</style>');
+            ventanaImpresion.document.write('</head><body>');
+            
+            if (tituloReportes) {
+                ventanaImpresion.document.write(tituloReportes.outerHTML);
+            }
+            
+            if (contenidoParaImprimir) {
+                ventanaImpresion.document.write(contenidoParaImprimir.outerHTML);
+            }
+            
+            ventanaImpresion.document.write('</body></html>');
+            ventanaImpresion.document.close();
+
+            ventanaImpresion.onload = function() {
+                ventanaImpresion.print();
+                ventanaImpresion.close();
+            };
+        }
+    </script>
 </body>
 
 </html>

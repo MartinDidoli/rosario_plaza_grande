@@ -7,13 +7,13 @@ $mailIngresa = $_POST["usuarioMailIngresa"];
 $checkMail = "SELECT * FROM usuarios WHERE nombreUsuario = '$mailIngresa'";
 $resultado = mysqli_query($link,$checkMail);
 if (mysqli_num_rows($resultado) > 0){
-    $vencimiento = date("Y-m-d H:i:s", time() + 60 * 30);
+    $vencimiento = date("Y-m-d H:i:s", time() + 150 * 30);
     $fechaIng = "UPDATE usuarios SET venceRecuperar='$vencimiento' WHERE nombreUsuario='$mailIngresa'";
     mysqli_query($link,$fechaIng);
     $resend = Resend::client('queti');
     $resend->emails->send([
         'from'=>'onboarding@resend.dev',
-        'to'=> $mailIngresa,
+        'to'=> 'ejemplo@gmail.com',
         'subject'=>'Recuperar contrasena',
         'html'=>'<p>Ingresá a este link para recuperar tu contraseña: <a href="www.rosarioplazagrande.free.nf/src/recuperarde.php?mail=' . $mailIngresa . '">Link</a></p>'
     ]);

@@ -17,15 +17,24 @@
                         <li class="nav-item mx-2">
                             <a class="nav-link active" aria-current="page" href="/public/index.php">🏠Home</a>
                         </li>
+                        <?php
+                        if(!isset($_SESSION["usuarioMailSesion"]) || ($_SESSION["usuarioTipoSesion"]!="administrador")){
+                        ?>
                         <li class="nav-item mx-2">
                             <a class="nav-link " href="/public/contacto.php">👥Contacto</a>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link" href="/public/nosotros.php">😎Nosotros</a>
                         </li>
+                        <?php
+                        if(!isset($_SESSION["usuarioMailSesion"]) || ($_SESSION["usuarioTipoSesion"]!="dueno")){
+                        ?>
                         <li class="nav-item mx-2">
                             <a class="nav-link" href="/public/promociones.php">🏷️Promociones</a>
                         </li>
+                        <?php
+                        }}
+                        ?>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -114,7 +123,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../../src/reportesdueno.php">Reportes</a></li>
-                                <li><a class="dropdown-item" href="../../src/descuentosdueno.php">Descuentos</a></li>
+                                <li><a class="dropdown-item" href="../../src/promocionesdueno.php">Descuentos</a></li>
                                 <li><a class="dropdown-item" href="../../src/solicitudesdueno.php">Solicitudes</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../../src/cerrarsesion.php">Cerrar sesión</a></li>

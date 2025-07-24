@@ -17,3 +17,20 @@
     z-index: 1000;
     background: #ffffff;
 }
+.form-floating > .form-control{
+    padding-right:3.5rem;
+}
+.form-floating .toggle-password{
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    z-index: 3;
+    font-size: 1.2rem;
+    transition: color 0.2s ease-in-out;
+}
+.toggle-password:hover{
+    color: #333;
+}

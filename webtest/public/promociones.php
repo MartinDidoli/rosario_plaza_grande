@@ -109,6 +109,7 @@ if(isset($_GET["comofue"])){
                 <table class="table table-striped table-bordered table-hover mb-0">
                     <thead class="table-dark">
                         <tr>
+                            <th scope="col">Código local</th>
                             <th scope="col">Local</th>
                             <?php
                             if(!isset($_SESSION["usuarioTipoSesion"]) or $_SESSION["usuarioTipoSesion"]!=="cliente"){
@@ -143,6 +144,7 @@ if(isset($_GET["comofue"])){
                             $diasMuestro = implode("-",$diasArray);
                             ?>
                             <tr>
+                                <td><?php echo $fila["codLocal"]?></td>
                                 <td><?php echo (buscarLocal($fila["codLocal"]))?></td>
                                 <?php
                                 if(!isset($_SESSION["usuarioTipoSesion"]) or $_SESSION["usuarioTipoSesion"]!=="cliente"){
@@ -176,7 +178,7 @@ if(isset($_GET["comofue"])){
                                         <?php
                                     } elseif (isset($_SESSION["usuarioTipoSesion"]) and $_SESSION["usuarioTipoSesion"]=="cliente"){
                                     ?>
-                                    <td><a href="../../src/promopedir.php?pido=<?php echo ($fila["codPromo"]) ?>&cliente=<?php echo $codUserNow ?>" style="text-decoration:none">🙏</a></td>
+                                    <td><a href="../../src/promoPedir.php?pido=<?php echo ($fila["codPromo"]) ?>&cliente=<?php echo $codUserNow ?>" style="text-decoration:none">🙏</a></td>
                                     <?php
                                 }
                                 ?>

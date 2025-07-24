@@ -11,6 +11,9 @@
 </head>
 <?php
 session_start();
+if(isset($_GET["confirmo"])){
+    include ("includes/mailEnviado.html");
+}
 ?>
 <body>
     <?php
@@ -27,7 +30,7 @@ session_start();
                 </div>
                 <hr class="my-5">
                 <h2 class="text-center mb-4">Formulario de contacto</h2>
-                <form>
+                <form action="../../src/enviarMail.php" method="POST">
                     <div class="mb-3">
                         <label for="mailSender" class="form-label">Tu mail:</label>
                         <input type="email" id="mailSender" name="mailSender" placeholder="mail@ejemplo.com" class="form-control" required>

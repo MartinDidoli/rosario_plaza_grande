@@ -7,6 +7,7 @@
     <title>Iniciar sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <?php
@@ -27,6 +28,9 @@ if(isset($_GET["login"])){
             break;
         case "modificoexitoso":
             include ("includes/claveexito.html");
+            break;
+        case "exitoso":
+            include ("includes/verificado.html");
             break;
     }
 }
@@ -54,6 +58,7 @@ if(isset($_GET["login"])){
                             <label for="usuarioClaveIngresa">
                                 Contraseña
                             </label>
+                            <i class="fa fa-eye toggle-password" data-target="usuarioClaveIngresa"></i>
                         </div>
                         <button class="btn btn-primary w-100 py-2" type="submit">
                             Ingresar
@@ -79,6 +84,7 @@ if(isset($_GET["login"])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script src="togglePassword.js"></script>
 </body>
 
 </html>

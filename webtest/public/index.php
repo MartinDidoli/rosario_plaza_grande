@@ -41,7 +41,7 @@ if(isset($_GET["login"])){
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active c-item" data-bs-interval="10000">
-                    <img src="assets\shopping1.jpg" class="d-block w-100 c-img" alt="Entrada de un shopping">
+                    <img src="assets/shopping1.jpg" class="d-block w-100 c-img" alt="Entrada de un shopping">
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">¡Bienvenidos a nuestro nuevo sitio web!</p>
                         <h1 class="display-1 fw-bolder text-shadow-custom">Rosario Plaza Grande</h1>
@@ -52,7 +52,7 @@ if(isset($_GET["login"])){
                 if(!isset($_SESSION["usuarioMailSesion"])){
                     ?>
                     <div class="carousel-item c-item" data-bs-interval="2000">
-                        <img src="assets\shopping2.jpg" class="d-block w-100 c-img" alt="Mujer realizando compras">
+                        <img src="assets/shopping2.jpg" class="d-block w-100 c-img" alt="Mujer realizando compras">
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-shadow-custom">Reservá los cupones de descuentos para tus compras</p>
                             <h2 class="display-1 fw-bolder text-shadow-custom">¡Registrate!</h2>
@@ -63,7 +63,7 @@ if(isset($_GET["login"])){
                 }
                 ?>
                 <div class="carousel-item c-item">
-                    <img src="assets\shopping3.jpg" class="d-block w-100 c-img" alt="Interior de un shopping">
+                    <img src="assets/shopping3.jpg" class="d-block w-100 c-img" alt="Interior de un shopping">
                     <div class="carousel-caption top-0 mt-4">
                         <p class="mt-5 fs-3 text-shadow-custom">Conocé todas las promociones</p>
                         <h2 class="display-1 fw-bolder text-shadow-custom">Todos tus descuentos acá</h2>

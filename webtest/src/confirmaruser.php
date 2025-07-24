@@ -8,7 +8,7 @@ $checkMail = "SELECT * FROM usuarios WHERE nombreUsuario = '$mailIngresa'";
 $resultado = mysqli_query($link,$checkMail);
 if (mysqli_num_rows($resultado) > 0){
     $usuario = mysqli_fetch_assoc($resultado);
-    if (($claveIngresa==$usuario["claveUsuario"]) and $usuario["duenoAprobado"]!="no"){
+    if (($claveIngresa==$usuario["claveUsuario"]) and $usuario["duenoAprobado"]!="no" and $usuario["categoriaCliente"]!="falta"){
         echo "Inicio de sesión correcto";
         session_start();
         $_SESSION["usuarioMailSesion"] = $mailIngresa;
@@ -21,8 +21,10 @@ if (mysqli_num_rows($resultado) > 0){
     } elseif ($claveIngresa!=$usuario["claveUsuario"]){
         echo "Contraseña mal ingresada";
         header("Location: /public/login.php?login=malaClave");
-    } else if ($usuario["duenoAprobado"]="no"){
+    } else if ($usuario["duenoAprobado"]=="no"){
         header("Location: /public/login.php?login=noAprobado");
+    } else if ($usuario["categoriaCliente"]=="falta") {
+        header("Location: /public/login.php?login=revisarMail");
     }
 } else {
     echo "El usuario no existe";
