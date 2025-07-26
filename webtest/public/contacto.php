@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +13,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <?php
-session_start();
 if(isset($_GET["confirmo"])){
     include ("includes/mailEnviado.html");
 }

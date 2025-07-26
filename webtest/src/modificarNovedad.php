@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,7 +14,6 @@
 </head>
 <body>
     <?php
-    session_start();
     include "conectarDB.php";
     require("../public/includes/header.php");
     $codNov = $_GET["codigo"];

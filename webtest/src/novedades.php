@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +13,6 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
-session_start();
 $categoriaAhora = $_SESSION["usuarioCategoriaSesion"];
 include "conectarDB.php";
 $cant_por_pag=5;

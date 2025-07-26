@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +13,6 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <?php
-session_start();
 $mailClave = $_GET["mail"];
 include "conectarDB.php";
 $checkMail = "SELECT * FROM usuarios WHERE nombreUsuario = '$mailClave'";

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +19,6 @@ if(isset($_GET["login"])){
             include ("includes/malaclave.html");
             break;
         case "noexisteusuario":
-            session_start();
             include ("includes/noexisteusuario.html");
             break;
         case "noAprobado":
